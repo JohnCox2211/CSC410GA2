@@ -25,23 +25,26 @@ public:
 	void print(); // for display
 
 	// NEW FUNCTIONS****************
-	void setmRate(double val);
-	double getmRate();
+	void setmRate(double val); // set mutation rate 0 - 1
+	double getmRate(); // return current mutation rate
 
-	void mutateGene(int index);
-	void mutate();
+	void mutateGene(int index); // mutates singe pixel at give index
+	void mutate(); // mutates all pixels 
 
-	double calcGeneFitness(int index, Pixel targetPixel);
+	// calc single pixel fitness vs target, returns normalized avg RGB diff or -1.0
+	double calcGeneFitness(int index, Pixel targetPixel);  
+	// calc overall fitness for genome vs target pixels, 
+	//returns normalized avg RGB diff across all genes or -1.0 for invalid
 	double calcOverallFitness(Pixel* target, int nPixels);
 
-	void setPixel(int index, Pixel newPixel);
-	Pixel getPixel(int index);
+	void setPixel(int index, Pixel newPixel); //set given pixel RGB vals
+	Pixel getPixel(int index); // returns pixel at given index or (0, 0, 0) if invalid index
 
 private:
 	Pixel* genes;
 	int nGenes;
 
 	//NEW VARIABLES
-	double mRate;
+	double mRate; // mutation rate
 };
 
