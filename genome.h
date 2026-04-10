@@ -24,8 +24,24 @@ public:
 
 	void print(); // for display
 
+	// NEW FUNCTIONS****************
+	void setmRate(double val);
+	double getmRate();
+
+	void mutateGene(int index);
+	void mutate();
+
+	double calcGeneFitness(int index, Pixel targetPixel);
+	double calcOverallFitness(Pixel* target, int nPixels);
+
+	void setPixel(int index, Pixel newPixel);
+	Pixel getPixel(int index);
+
 private:
 	Pixel* genes;
 	int nGenes;
+
+	//NEW VARIABLES
+	double mRate;
 };
 
